@@ -66,22 +66,14 @@ def game_loop():
                 gameExit = True
 
             if event.type == pygame.KEYDOWN:
-                print "KEYDOWN"
                 if event.key == pygame.K_w and guy_standing == True:
-                    print "JUMPING"
                     guy_standing = False
                     guy_jumping = True
                     y_change = -20
 
         if guy_jumping == True and y == 180:
-            print "DESCENDING"
             y_change = 5
-            """if y + y_change + 2 <=280:
-                y_change +=2
-            else:
-                y_change = 280-y"""
         elif guy_jumping == True and y > 280:
-            print "GROUNDED"
             y_change = 0
             y = 280
             guy_jumping = False
@@ -90,7 +82,6 @@ def game_loop():
             y_change = 0
             
         y += y_change
-        print y
 
         gameDisplay.fill(white)
         guy(x,y)
